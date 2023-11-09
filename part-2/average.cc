@@ -25,10 +25,11 @@ int main(int argc, char* argv[]) {
   double sum = 0.0;
   for (int i = 1; i < argc; ++i) {
     try {
-      double num =
-std::stod(arguments[i]);
-  sum += num;
-    }
+      double num = std::stod(arguments[i]);
+      sum += num;
+    } catch (const std::invalid_argument& e) {
+      std::cerr << "Error converting argument to number: " << e.what() << "\n";
+      return 1;
     }
   }
   // TODO: After the loop has finished summing the arguments, calculate the
