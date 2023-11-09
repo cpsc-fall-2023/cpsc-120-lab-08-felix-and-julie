@@ -23,19 +23,24 @@ int main(int argc, char* argv[]) {
   // Each argument is a std::string. You will need to convert each string into
   // a number with the std::stod or std::stof function.
   double sum = 0.0;
-  for (in i = 1; i < argc; ++i) {
+  for (int i = 1; i < argc; ++i) {
     try {
       double num =
-std::stof
+std::stod(arguments[i]);
+  sum += num;
+    }
     }
   }
   // TODO: After the loop has finished summing the arguments, calculate the
   // average of the values. Recall that the average is the total value divided
   // by the number of values.
 
+double average = sum / (arguments.size() - 1);
+
   // TODO: Use cout to print out a message of the form
   // average = *AVERAGE*
   // on its own line.
 
+std::cout << "average = " << average << std::endl;
   return 0;
 }
